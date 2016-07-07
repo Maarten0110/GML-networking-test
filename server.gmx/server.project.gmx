@@ -13,7 +13,17 @@
       <script>scripts\README.gml</script>
       <script>scripts\UT_test_output.gml</script>
     </scripts>
+    <scripts name="console">
+      <script>scripts\draw_console.gml</script>
+      <script>scripts\console_setup.gml</script>
+      <script>scripts\console_update.gml</script>
+      <script>scripts\console_scroll.gml</script>
+      <script>scripts\console_print.gml</script>
+    </scripts>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\fnt_console</font>
+  </fonts>
   <objects name="objects">
     <object>objects\UT_TEST</object>
     <object>objects\obj_server</object>
@@ -22,6 +32,13 @@
     <room>rooms\UT_TESTROOM</room>
     <room>rooms\rm_server</room>
   </rooms>
+  <constants number="5">
+    <constant name="PORT">6510</constant>
+    <constant name="MAX_CLIENTS">8</constant>
+    <constant name="THEME_COLOR">make_color_rgb(0, 120, 223)</constant>
+    <constant name="CONSOLE_UP">1</constant>
+    <constant name="CONSOLE_DOWN">0</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>
