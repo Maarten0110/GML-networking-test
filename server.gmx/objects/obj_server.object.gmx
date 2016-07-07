@@ -26,8 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>console_setup();
+
 console_print("Setting up server...");
-server = network_create_server(network_socket_tcp, PORT, MAX_CLIENTS);
+
+server_setup();
 
 console_print(
 "Server up and running! Press:
@@ -74,6 +76,48 @@ console_print(
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
+      </action>
+    </event>
+    <event eventtype="7" enumb="68">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>switch(find("type")) {
+
+    // a connection attempt from client succeeded/failed
+    case network_type_non_blocking_connect: {
+        if (find("succeeded")) {
+            server_report_client(find("socket"), find("ip"));
+            console_print("A client made a connection. (id = "
+                            + find("socket") + "; ip = "
+                            + find("ip") + ")");
+        } else {
+            console_print("A client failed to make a connection.");
+        }
+    } break;
+    
+    // TODO!!!
+    default: {
+        show_message("???");
+    }
+
+}
+</string>
+          </argument>
+        </arguments>
       </action>
     </event>
     <event eventtype="8" enumb="0">

@@ -20,6 +20,12 @@
       <script>scripts\console_scroll.gml</script>
       <script>scripts\console_print.gml</script>
     </scripts>
+    <scripts name="server">
+      <script>scripts\find.gml</script>
+      <script>scripts\server_setup.gml</script>
+      <script>scripts\server_report_client.gml</script>
+      <script>scripts\server_identify_client.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_console</font>
@@ -27,17 +33,19 @@
   <objects name="objects">
     <object>objects\UT_TEST</object>
     <object>objects\obj_server</object>
+    <object>objects\obj_client_data</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\UT_TESTROOM</room>
     <room>rooms\rm_server</room>
   </rooms>
-  <constants number="5">
+  <constants number="6">
     <constant name="PORT">6510</constant>
     <constant name="MAX_CLIENTS">8</constant>
     <constant name="THEME_COLOR">make_color_rgb(0, 120, 223)</constant>
     <constant name="CONSOLE_UP">1</constant>
     <constant name="CONSOLE_DOWN">0</constant>
+    <constant name="TIME_OUT">4000</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
