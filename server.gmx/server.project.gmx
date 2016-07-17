@@ -18,12 +18,25 @@
       <script>scripts\UT_server_handle_client_disconnection.gml</script>
       <script>scripts\UT_server_handle_identification.gml</script>
     </scripts>
-    <scripts name="console">
-      <script>scripts\draw_console.gml</script>
-      <script>scripts\console_setup.gml</script>
-      <script>scripts\console_update.gml</script>
-      <script>scripts\console_scroll.gml</script>
-      <script>scripts\console_print.gml</script>
+    <scripts name="screen">
+      <script>scripts\surface_create_power2.gml</script>
+      <scripts name="console">
+        <script>scripts\draw_console.gml</script>
+        <script>scripts\console_setup.gml</script>
+        <script>scripts\console_update.gml</script>
+        <script>scripts\console_scroll.gml</script>
+        <script>scripts\console_print.gml</script>
+        <script>scripts\console_destroy.gml</script>
+      </scripts>
+      <scripts name="table">
+        <script>scripts\draw_table.gml</script>
+        <script>scripts\draw_table_row.gml</script>
+        <script>scripts\table_clear.gml</script>
+        <script>scripts\table_create.gml</script>
+        <script>scripts\table_add_column.gml</script>
+        <script>scripts\table_row_create.gml</script>
+        <script>scripts\table_row_add_entry.gml</script>
+      </scripts>
     </scripts>
     <scripts name="server">
       <script>scripts\find.gml</script>
@@ -42,6 +55,10 @@
         <script>scripts\server_get_client_data.gml</script>
         <script>scripts\server_get_client_info.gml</script>
       </scripts>
+      <scripts name="client table">
+        <script>scripts\client_table_update.gml</script>
+        <script>scripts\client_table_setup.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -51,18 +68,21 @@
     <object>objects\UT_TEST</object>
     <object>objects\UT_test_object</object>
     <object>objects\obj_server</object>
+    <object>objects\obj_table</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\UT_TESTROOM</room>
     <room>rooms\rm_server</room>
   </rooms>
-  <constants number="7">
+  <constants number="9">
     <constant name="PORT">6510</constant>
     <constant name="MAX_CLIENTS">8</constant>
-    <constant name="THEME_COLOR">make_color_rgb(0, 120, 223)</constant>
-    <constant name="CONSOLE_UP">1</constant>
-    <constant name="CONSOLE_DOWN">0</constant>
     <constant name="TIME_OUT">4000</constant>
+    <constant name="CONSOLE_DOWN">0</constant>
+    <constant name="CONSOLE_UP">1</constant>
+    <constant name="THEME_COLOR">make_color_rgb(0, 120, 223)</constant>
+    <constant name="TABLE_COLUMN_HEADER_BG_COLOR">make_color_rgb(224,224,224)</constant>
+    <constant name="TABLE_CONTENTS_BG_COLOR">make_color_rgb(192,192,192)</constant>
     <constant name="M_IDENTIFICATION">0</constant>
   </constants>
   <help>

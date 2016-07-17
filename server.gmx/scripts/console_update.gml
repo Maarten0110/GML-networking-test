@@ -9,8 +9,10 @@ if (ds_list_size(console_messages) > console_messages_size) {
     console_messages_size++;
 }
 
-if (mouse_x > 0 && mouse_x <= console_width &&
-    mouse_y > console_title_height && mouse_y <= room_height) {
+if (mouse_x > console_x &&
+    mouse_x <= console_x + console_width &&
+    mouse_y > console_y + console_title_height &&
+    mouse_y <= console_y + console_height) {
     
     if (mouse_wheel_up()) console_scroll(CONSOLE_UP);
     if (mouse_wheel_down()) console_scroll(CONSOLE_DOWN);

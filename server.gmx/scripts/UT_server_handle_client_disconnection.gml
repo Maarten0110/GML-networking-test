@@ -49,6 +49,6 @@ with (o) {
     ds_map_destroy(server_clients);
     ds_map_destroy(server_disconnected_clients);
     ds_map_destroy(client_data2);
-    ds_list_destroy(console_messages);
+    console_destroy();
     instance_destroy();
 }

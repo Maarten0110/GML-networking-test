@@ -22,5 +22,8 @@ with (o) {
             + " correctly. Expected clientname but was "
             + server_get_client_info(client_data, "name")
             + ".");
-        
+    
+    ds_map_destroy(server_clients);
+    console_destroy();
+    instance_destroy();
 }

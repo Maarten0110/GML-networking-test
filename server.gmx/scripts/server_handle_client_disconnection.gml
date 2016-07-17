@@ -14,18 +14,15 @@ if (server_get_client_info(client_data,
 
     // delete client data from server_clients
     ds_map_delete(server_clients, socket);
-    var name = server_get_client_info(client_data,
-                                      "name");
     // destroy used data structure
     ds_map_destroy(client_data);
     
-    console_print("A client ("+name+") logged off.");
+    console_print("A client (" + string(socket)
+                    + ") logged off.");
     
 } else {
     
     var ip = server_get_client_info(client_data, "ip");
-    var name = server_get_client_info(client_data,
-                                      "name"); 
     
     // move client data from server_clients to
     // server_disconnected_clients.
@@ -33,6 +30,7 @@ if (server_get_client_info(client_data,
                client_data);
     ds_map_delete(server_clients, socket);
     
-    console_print("A client ("+name+") disconnected.");
+    console_print("A client (" + string(socket)
+                    + ") disconnected.");
     
 }
