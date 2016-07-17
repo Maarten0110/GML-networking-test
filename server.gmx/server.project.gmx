@@ -13,6 +13,11 @@
       <script>scripts\README.gml</script>
       <script>scripts\UT_test_output.gml</script>
     </scripts>
+    <scripts name="Unit Tests">
+      <script>scripts\UT_server_handle_client_connection.gml</script>
+      <script>scripts\UT_server_handle_client_disconnection.gml</script>
+      <script>scripts\UT_server_handle_identification.gml</script>
+    </scripts>
     <scripts name="console">
       <script>scripts\draw_console.gml</script>
       <script>scripts\console_setup.gml</script>
@@ -23,8 +28,20 @@
     <scripts name="server">
       <script>scripts\find.gml</script>
       <script>scripts\server_setup.gml</script>
-      <script>scripts\server_report_client.gml</script>
-      <script>scripts\server_identify_client.gml</script>
+      <scripts name="network event handlers">
+        <scripts name="request handlers">
+          <script>scripts\server_handle_identification.gml</script>
+        </scripts>
+        <script>scripts\server_handle_requests.gml</script>
+        <script>scripts\server_handle_client_connection.gml</script>
+        <script>scripts\server_handle_client_disconnection.gml</script>
+      </scripts>
+      <scripts name="client data management">
+        <script>scripts\server_create_client_data.gml</script>
+        <script>scripts\server_set_client_info.gml</script>
+        <script>scripts\server_get_client_data.gml</script>
+        <script>scripts\server_get_client_info.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -32,20 +49,21 @@
   </fonts>
   <objects name="objects">
     <object>objects\UT_TEST</object>
+    <object>objects\UT_test_object</object>
     <object>objects\obj_server</object>
-    <object>objects\obj_client_data</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\UT_TESTROOM</room>
     <room>rooms\rm_server</room>
   </rooms>
-  <constants number="6">
+  <constants number="7">
     <constant name="PORT">6510</constant>
     <constant name="MAX_CLIENTS">8</constant>
     <constant name="THEME_COLOR">make_color_rgb(0, 120, 223)</constant>
     <constant name="CONSOLE_UP">1</constant>
     <constant name="CONSOLE_DOWN">0</constant>
     <constant name="TIME_OUT">4000</constant>
+    <constant name="M_IDENTIFICATION">0</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

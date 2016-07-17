@@ -1,9 +1,18 @@
 /// server_setup()
 
 network_set_config(network_config_connect_timeout, TIME_OUT);
-network_set_config(network_config_use_non_blocking_socket, 1);
 
 server_socket = network_create_server(network_socket_tcp,
                                         PORT, MAX_CLIENTS);
-server_clients = ds_list_create();
-server_unidentified_clients = ds_list_create();
+
+// Create a map to store client data:
+//      key = socket id of the client socket
+//      value = is a map with client data (see
+//              server_create_client_data())
+server_clients = ds_map_create();
+
+// Create a map to store disconnected client data
+//      key = ip adress of the client      
+//      value = is a map with client data (same
+//              as in server_clients)
+server_disconnected_clients = ds_map_create();

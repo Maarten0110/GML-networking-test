@@ -25,8 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>setup_connection();
-socket = connect();
+            <string>client_setup_connection();
+socket = client_connect();
+
+buffer = buffer_create(8, buffer_grow, 1);
 
 connection_attempts = 1;
 
@@ -60,11 +62,12 @@ GLOBAL_connected = false;
     case network_type_non_blocking_connect: {
         if (find("succeeded")) {
             GLOBAL_connected = true;
+            client_identify(socket, buffer, NAME);
         } else {
             if (connection_attempts ==
                 MAX_CONNECTION_ATTEMPTS) exit;
             network_destroy(socket);
-            socket = connect();
+            socket = client_connect();
             connection_attempts++;
         }
     } break;

@@ -98,15 +98,18 @@ console_print(
             <string>switch(find("type")) {
 
     // a connection attempt from client succeeded/failed
-    case network_type_non_blocking_connect: {
-        if (find("succeeded")) {
-            server_report_client(find("socket"), find("ip"));
-            console_print("A client made a connection. (id = "
-                            + find("socket") + "; ip = "
-                            + find("ip") + ")");
-        } else {
-            console_print("A client failed to make a connection.");
-        }
+    case network_type_connect: {
+        server_handle_client_connection(find("socket"), find("ip"));
+    } break;
+    
+    // a client has disconnected
+    case network_type_disconnect: {
+        server_handle_client_disconnection(find("socket"));
+    } break;
+    
+    // a client has sent a request
+    case network_type_data: {
+        server_handle_requests(find("buffer"), find("id"));
     } break;
     
     // TODO!!!
