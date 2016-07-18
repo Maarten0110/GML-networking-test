@@ -1,4 +1,5 @@
 /// table_update()
+// Checks for scrolling.
 
 if (mouse_x >  x &&
     mouse_x <= x + width &&

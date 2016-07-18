@@ -1,4 +1,5 @@
 /// server_setup()
+// Sets up the server.
 
 network_set_config(network_config_connect_timeout, TIME_OUT);
 

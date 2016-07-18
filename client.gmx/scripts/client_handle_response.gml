@@ -1,4 +1,9 @@
 /// client_handle_response(buffer)
+// - Determines which request was responded to.
+// - Executes the right response handler.
+// - Destroys the now redundant buffer that
+//   contains the response.
+
 var buffer = argument0;
 
 var response = buffer_read(buffer, buffer_u8);

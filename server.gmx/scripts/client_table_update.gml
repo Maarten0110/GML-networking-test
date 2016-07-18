@@ -1,7 +1,10 @@
 /// client_table_update()
+// Updates the table that holds client information.
 
+// Empty the table.
 table_clear(client_table);
 
+// Add information of all connected clients.
 var current_key = ds_map_find_first(server_clients);
 for (var i = 0; i < ds_map_size(server_clients); i++) {
 
@@ -19,6 +22,7 @@ for (var i = 0; i < ds_map_size(server_clients); i++) {
     current_key = ds_map_find_next(server_clients,
                                     current_key);
 };
+// Add information of all disconnected clients.
 current_key = ds_map_find_first(server_disconnected_clients);
 for (var i = 0;
         i < ds_map_size(server_disconnected_clients); i++) {

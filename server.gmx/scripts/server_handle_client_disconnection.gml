@@ -22,8 +22,8 @@ if (server_get_client_info(client_data,
     
 } else {
     
-    var ip = server_get_client_info(client_data, "ip");
-    
+    var ip = server_get_client_info(client_data,
+                                        "ip");
     // move client data from server_clients to
     // server_disconnected_clients.
     ds_map_add(server_disconnected_clients, ip,

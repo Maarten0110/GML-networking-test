@@ -1,6 +1,6 @@
 /// draw_table_row(row, int y)
-// Draws table row and returns the height of the
-// row.
+// Draws yhe given table row and returns the height
+// of the row.
 var row = argument0;
 var yy = argument1;
 var xx = 3;

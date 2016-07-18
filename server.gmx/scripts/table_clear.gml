@@ -1,5 +1,5 @@
 /// table_clear(table)
-// Destroys all contents of the table
+// Destroys all contents of the table.
 
 var table = argument0;
 

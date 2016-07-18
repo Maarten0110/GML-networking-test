@@ -2,7 +2,8 @@
 
 // Returns a newly created surface with size n x n,
 // with n is as small as possible while n > width
-// and n > height, and n is a power of 2.
+// and n > height, and n is a power of 2. (this
+// is important according to the GML manual)
 
 var size = power(2, ceil(log2(max(argument0, argument1))));
 return surface_create(size, size);

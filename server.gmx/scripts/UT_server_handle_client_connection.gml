@@ -2,18 +2,27 @@ name = argument0;
 var o = instance_create(0,0, UT_test_object);
 
 with (o) {
+    // Setup a similar environment as the real server.
     console_setup();
     server_clients = ds_map_create();
     server_disconnected_clients = ds_map_create();
+    
+    // Setup a situation in which all branches of the
+    // script can be tested.
     client_data = server_create_client_data(13);
     server_set_client_info(client_data, "ip", "IPADRESS.13");
     server_set_client_info(client_data, "name", "CLIENT13");
     ds_map_add(server_disconnected_clients, "IPADRESS.13",
                 client_data);
 
+    // Execute the script that is to be tested. There are
+    // 2 scenarios, because there are 2 branches in the
+    // script.
     server_handle_client_connection(99, "IPADRESS.13");
     server_handle_client_connection(2, "IPADRESS.2");
     
+    // Check if the things that should have happened have
+    // actually happened.
     UT_test_output(
         server_get_client_info(client_data, "socket") == 99,
         other.name,
@@ -56,6 +65,7 @@ with (o) {
             + "correctly. Expected 2 but was"
             + server_get_client_info(server_get_client_data(2), "ip") + ".");
     
+    // clean up
     ds_map_destroy(server_get_client_data(2));
     ds_map_destroy(client_data); 
     ds_map_destroy(server_clients);

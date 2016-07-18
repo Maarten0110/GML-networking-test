@@ -113,7 +113,7 @@ client_table_update();
         server_handle_requests(find("buffer"), find("id"));
     } break;
     
-    // TODO!!!
+    // TO-DO
     default: {
         show_message("???");
     }
@@ -141,7 +141,7 @@ client_table_update();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_console(console_width, console_text);
+            <string>draw_console();
 </string>
           </argument>
         </arguments>

@@ -28,7 +28,8 @@
             <string>if (!debug_mode) exit;
 
 UT_tests = ds_map_create(); // Map containg all registered tests
-UT_succeeded_tests = 0; // For counting the number of failed/succeeded tests                      
+UT_succeeded_tests = 0; // For counting the number of failed/succeeded tests  
+UT_completed_tests = 0;                    
 
 /***************************************************************************/
 /*                      ADD UNIT TESTS HERE                                */
@@ -49,7 +50,7 @@ for (var i = 0; i &lt; size; i++) {
     current_key = ds_map_find_previous(UT_tests, current_key);
 }
 show_debug_message("");
-show_debug_message("   "+string(UT_succeeded_tests)+"/"+string(size)+" unit tests completed without errors.");
+show_debug_message("   "+string(UT_succeeded_tests)+"/"+string(UT_completed_tests)+" unit tests completed without errors.");
 show_debug_message("----------------------------------------------------------------");
 
 // done, no need for for instances of this object to take up space any longer

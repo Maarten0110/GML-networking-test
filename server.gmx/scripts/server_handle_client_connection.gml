@@ -1,5 +1,4 @@
 /// server_handle_client_connection(socket, ip);
-
 // Check if this is the first time that the client connects.
 // If so, add the client data of this client to the 
 // server_clients map. If not, move the client data of this

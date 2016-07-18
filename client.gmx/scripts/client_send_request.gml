@@ -1,4 +1,8 @@
 /// client_send_request(socket, buffer, request)
+// - Prepare the given buffer for a new request
+// - Execute the request writer that belongs to
+//   the given request.
+// - Send the request to the given socket.
 
 var socket = argument0;
 var buffer = argument1;
