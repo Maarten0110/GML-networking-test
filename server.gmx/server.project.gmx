@@ -36,6 +36,8 @@
         <script>scripts\table_add_column.gml</script>
         <script>scripts\table_row_create.gml</script>
         <script>scripts\table_row_add_entry.gml</script>
+        <script>scripts\table_update.gml</script>
+        <script>scripts\table_scroll.gml</script>
       </scripts>
     </scripts>
     <scripts name="server">
@@ -56,8 +58,8 @@
         <script>scripts\server_get_client_info.gml</script>
       </scripts>
       <scripts name="client table">
-        <script>scripts\client_table_update.gml</script>
         <script>scripts\client_table_setup.gml</script>
+        <script>scripts\client_table_update.gml</script>
       </scripts>
     </scripts>
   </scripts>

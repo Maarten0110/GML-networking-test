@@ -5,13 +5,19 @@ if (surface_exists(surface)) {
     surface_set_target(surface);
 
     draw_set_font(fnt_console);
-    var title_height = string_height(title);
     var yy = title_height + 3;
     
     // draw table background
     draw_set_color(TABLE_CONTENTS_BG_COLOR);
     draw_rectangle(0, 0, width, height, false);
+    // draw rows
+    draw_set_color(c_black);
+    var yyy = yy*2 + 1;
+    for (var i = 0; i < ds_list_size(rows); i++) {
+        yyy += draw_table_row(rows[| i], scroll_distance+yyy) + 2;
+    };
     
+    // draw outlines, title and header background
     draw_set_color(c_white);
     draw_rectangle(0, 0, width - 2, yy, false);
     
@@ -37,13 +43,6 @@ if (surface_exists(surface)) {
         xx += column[? "size"];
     };
     
-    // draw rows
-    var row_height = 0;
-    var yy = yy*2 + 1;
-    for (var i = 0; i < ds_list_size(rows); i++) {
-        yy += draw_table_row(rows[| i], yy) + 2;
-    };
-
     surface_reset_target();
     draw_surface_part(surface, 0, 0, width, height, x, y);
 } else {
