@@ -21,7 +21,15 @@
       <script>scripts\find.gml</script>
       <script>scripts\client_setup_connection.gml</script>
       <script>scripts\client_connect.gml</script>
-      <script>scripts\client_identify.gml</script>
+      <script>scripts\client_send_request.gml</script>
+      <script>scripts\client_prepare_buffer.gml</script>
+      <script>scripts\client_handle_response.gml</script>
+      <scripts name="request writers">
+        <script>scripts\client_request_identification.gml</script>
+      </scripts>
+      <scripts name="response handlers">
+        <script>scripts\client_handle_response_identification.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <objects name="objects">
@@ -38,7 +46,7 @@
     <constant name="TIME_OUT">4000</constant>
     <constant name="MAX_CONNECTION_ATTEMPTS">5</constant>
     <constant name="NAME">"Maarten"</constant>
-    <constant name="M_IDENTIFICATION">0</constant>
+    <constant name="R_IDENTIFICATION">0</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

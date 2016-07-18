@@ -62,7 +62,8 @@ GLOBAL_connected = false;
     case network_type_non_blocking_connect: {
         if (find("succeeded")) {
             GLOBAL_connected = true;
-            client_identify(socket, buffer, NAME);
+            client_send_request(socket, buffer,
+                                    R_IDENTIFICATION);
         } else {
             if (connection_attempts ==
                 MAX_CONNECTION_ATTEMPTS) exit;
@@ -72,7 +73,11 @@ GLOBAL_connected = false;
         }
     } break;
     
-    // TODO!!!
+    case network_type_data: {
+        client_handle_response(find("buffer"));
+    } break;
+    
+    // TO-DO
     default: {
         show_message("???");
     }

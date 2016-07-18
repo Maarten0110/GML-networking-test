@@ -13,4 +13,8 @@ server_set_client_info(client_data, "name", name);
 console_print("Client (" + string(client_socket)
                 + ") identified itself as "
                 + name + ".");
-buffer_delete(buffer);
+
+// SEND RESPONSE
+if (debug_mode) exit;
+buffer_write(server_buffer, buffer_bool, true);
+server_send_response(client_socket, server_buffer);

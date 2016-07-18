@@ -47,14 +47,16 @@
         <scripts name="request handlers">
           <script>scripts\server_handle_identification.gml</script>
         </scripts>
-        <script>scripts\server_handle_requests.gml</script>
         <script>scripts\server_handle_client_connection.gml</script>
         <script>scripts\server_handle_client_disconnection.gml</script>
+        <script>scripts\server_handle_requests.gml</script>
+        <script>scripts\server_prepare_buffer.gml</script>
+        <script>scripts\server_send_response.gml</script>
       </scripts>
       <scripts name="client data management">
         <script>scripts\server_create_client_data.gml</script>
-        <script>scripts\server_set_client_info.gml</script>
         <script>scripts\server_get_client_data.gml</script>
+        <script>scripts\server_set_client_info.gml</script>
         <script>scripts\server_get_client_info.gml</script>
       </scripts>
       <scripts name="client table">
@@ -85,7 +87,7 @@
     <constant name="THEME_COLOR">make_color_rgb(0, 120, 223)</constant>
     <constant name="TABLE_COLUMN_HEADER_BG_COLOR">make_color_rgb(224,224,224)</constant>
     <constant name="TABLE_CONTENTS_BG_COLOR">make_color_rgb(192,192,192)</constant>
-    <constant name="M_IDENTIFICATION">0</constant>
+    <constant name="R_IDENTIFICATION">0</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
