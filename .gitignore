@@ -12,5 +12,4 @@
 hs_err_pid*
 *.index
 java server/.metadata/.plugins/
-java server/.metadata/.lock
-java server/.metadata/
+java server/.recommenders/
