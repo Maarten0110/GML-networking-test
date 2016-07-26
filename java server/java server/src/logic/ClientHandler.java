@@ -11,31 +11,24 @@ public class ClientHandler implements Runnable{
 
 	private Socket socket;
 	private GMLInputStream streamIn;
-	private DataOutputStream streamOut;
+	private GMLOutputStream streamOut;
 	private Thread thread;
 	private boolean running = false;
 	
 	public ClientHandler(Socket socket) {
 		thread = new Thread(this);
 		this.socket = socket;
-
 	}
 	
 	public void launch() throws IOException {
 		streamIn = new GMLInputStream(socket.getInputStream());
-		streamOut = new DataOutputStream(socket.getOutputStream());
+		streamOut = new GMLOutputStream(socket.getOutputStream());
 		running = true;
 		thread.start();
 	}
 	
 	@Override
 	public void run() {
-		try {
-			Print.withTime(""+streamIn.readString());
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
-
 		while (running) {
 			try {
 				Print.withTime(""+streamIn.readString());

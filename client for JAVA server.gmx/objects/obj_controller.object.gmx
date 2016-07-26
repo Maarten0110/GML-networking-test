@@ -37,10 +37,6 @@ if (result) {
     show_message("NOPE");
 }
 
-var buffer = client[? "buffer"];
-buffer_write(buffer, buffer_string, "hallo!");
-show_message(string(buffer_get_size(buffer)));
-client_send(client);
 </string>
           </argument>
         </arguments>
@@ -63,9 +59,8 @@ client_send(client);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>buffer_write(client[? "buffer"], buffer_string, get_string("what to send?", ""));
-show_message(string(buffer_get_size(client[? "buffer"])));
-buffer_resize(client[? "buffer"], get_integer("size?", 0));
+            <string>client_buffer_write(client, buffer_string,
+                        get_string("what to send (string)?",""));
 client_send(client);
 </string>
           </argument>

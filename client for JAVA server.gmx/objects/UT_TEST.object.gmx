@@ -35,7 +35,7 @@ UT_completed_tests = 0;
 /*                      ADD UNIT TESTS HERE                                */
 /***************************************************************************/
 
-// example: "ds_map_add(UT_tests, "test0", UT_test0);"
+ds_map_add(UT_tests, "Buffer resizing system", UT_client_buffer_write);
 
 /***************************************************************************/
 

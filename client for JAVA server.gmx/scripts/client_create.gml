@@ -11,6 +11,7 @@ client[? "socket"] = undefined;
 client[? "ip"] = ip;
 client[? "port"] = port;
 client[? "buffer"] = buffer_create(1, buffer_grow, 1);
+client[? "buffer_size"] = 0;
 client[? "read_timeout"] = read_timeout;
 client[? "write_timeout"] = write_timeout;
 
