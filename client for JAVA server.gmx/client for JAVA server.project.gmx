@@ -25,6 +25,7 @@
       <scripts name="packet_collector">
         <script>scripts\packet_collector_create.gml</script>
         <script>scripts\packet_collector_add_packet.gml</script>
+        <script>scripts\packet_collector_find_message.gml</script>
       </scripts>
     </scripts>
   </scripts>
