@@ -15,6 +15,8 @@
     </scripts>
     <scripts name="UT">
       <script>scripts\UT_client_buffer_write.gml</script>
+      <script>scripts\UT_packet_collector_add_packet.gml</script>
+      <script>scripts\UT_packet_collector_find_message.gml</script>
     </scripts>
     <scripts name="client">
       <script>scripts\network_settings_setup.gml</script>
@@ -27,6 +29,7 @@
         <script>scripts\packet_collector_add_packet.gml</script>
         <script>scripts\packet_collector_find_message.gml</script>
       </scripts>
+      <script>scripts\find.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">

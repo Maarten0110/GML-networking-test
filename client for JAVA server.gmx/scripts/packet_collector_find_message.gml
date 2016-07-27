@@ -38,13 +38,13 @@ switch (pc[? "state"]) {
         var target_size = pc[? "target_size"];
         if (buffer_size - header_size >= target_size) {
            
-             // Only take the MessageBody from the buffer:
+            // Only take the MessageBody from the buffer:
             // buffer{ MagicNumber|SizeIndicator|Messagebody|Nextmessage }
             var new_buffer = buffer_create(target_size, buffer_fixed, 1);
             buffer_copy(buffer, header_size, target_size, new_buffer, 0);
-            pc[? "recieved_message"] = new_buffer;
+            ds_list_add(pc[? "recieved_messages"], new_buffer);
            
-             // Put the Nextmessage part in front of the packet_collector
+            // Put the Nextmessage part in front of the packet_collector
             // buffer.
             var size = buffer_size - target_size - header_size;
             var temp_buffer = buffer_create(size, buffer_fixed, 1);
@@ -54,8 +54,17 @@ switch (pc[? "state"]) {
             // Change the buffer size accordingly.
             pc[? "buffer_size"] = size;
            
-             // Fire user defined event number 0.
+            // Fire user defined event number 0.
             event_perform(ev_other, ev_user0);
+            
+            // Change state back to WAITING.
+            pc[? "state"] = packet_collector_states.WAITING;
+            pc[? "target_size"] = header.SIZE_INDICATOR_MAX_VALUE;
+            
+            // Call this script again if there is a chance that two messages
+            // arrived at the same time.
+            if (buffer_size >= pc[? "header_size"])
+                packet_collector_find_message(pc);
         }
     } break;
     

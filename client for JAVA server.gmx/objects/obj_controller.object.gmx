@@ -36,7 +36,6 @@ if (result) {
 } else {
     show_message("NOPE");
 }
-
 </string>
           </argument>
         </arguments>
@@ -59,10 +58,32 @@ if (result) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>client_buffer_write(client, buffer_string,
+            <string>/*client_buffer_write(client, buffer_string,
                         get_string("what to send (string)?",""));
 client_send(client);
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="68">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string></string>
           </argument>
         </arguments>
       </action>

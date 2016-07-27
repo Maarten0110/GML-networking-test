@@ -15,4 +15,6 @@ map[? "target_size"] = header.SIZE_INDICATOR_MAX_VALUE;
 map[? "buffer"] = buffer_create(network_settings.PACKET_COLLECTOR_BUFFER_SIZE,
                                    buffer_fixed, 1);
 map[? "header_size"] = header.MAGIC_NUMBER_SIZE + header.SIZE_INDICATOR_SIZE;
-map[? "recieved_message"] = undefined;
+map[? "recieved_messages"] = ds_list_create();
+
+return map;

@@ -29,6 +29,12 @@ public class ClientHandler implements Runnable{
 	
 	@Override
 	public void run() {
+		try {
+			streamOut.writeString("HalloHalloHallo");
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		while (running) {
 			try {
 				Print.withTime(""+streamIn.readString());

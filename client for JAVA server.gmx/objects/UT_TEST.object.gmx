@@ -36,6 +36,8 @@ UT_completed_tests = 0;
 /***************************************************************************/
 
 ds_map_add(UT_tests, "Buffer resizing system", UT_client_buffer_write);
+ds_map_add(UT_tests, "Packet collector: adding packets", UT_packet_collector_add_packet);
+ds_map_add(UT_tests, "Packet collector: finding message", UT_packet_collector_find_message);
 
 /***************************************************************************/
 
@@ -54,6 +56,7 @@ show_debug_message("   "+string(UT_succeeded_tests)+"/"+string(UT_completed_test
 show_debug_message("----------------------------------------------------------------");
 
 // done, no need for for instances of this object to take up space any longer
+ds_map_destroy(UT_tests);
 instance_destroy();
 </string>
           </argument>
