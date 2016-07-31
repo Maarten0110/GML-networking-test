@@ -92,7 +92,8 @@ UT_test_output(
     'The second part of the first message body was not read succesfully. Expected '
         + '"hai!" but was "' + read + '".'
 );
-var test = ds_list_find_value(list, 1);
+buffer_delete(test);
+test = ds_list_find_value(list, 1);
 UT_test_output(
     buffer_get_size(test) == 7,
     name,
@@ -108,6 +109,7 @@ UT_test_output(
     'The second message body was not read succesfully. Expected '
         + '"halo!" but was "' + read + '".'
 );
+buffer_delete(test);
 // The remaining part of the p.c. buffer should be placed a the front, also the
 // buffer_size should have been updated.
 test = pc[? "buffer"];
@@ -129,3 +131,7 @@ UT_test_output(
         + string(header.MAGIC_NUMBER_SIZE) + ", but was "
         + string(pc[? "buffer_size"]) + "."
 );
+
+ds_list_destroy(list);
+buffer_delete(pc[? "buffer"]);
+ds_map_destroy(pc);

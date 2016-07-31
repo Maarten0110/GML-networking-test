@@ -50,6 +50,7 @@ switch (pc[? "state"]) {
             var temp_buffer = buffer_create(size, buffer_fixed, 1);
             buffer_copy(buffer, header_size+target_size, size, temp_buffer, 0);
             buffer_copy(temp_buffer, 0, size, buffer, 0);
+            buffer_delete(temp_buffer);
             
             // Change the buffer size accordingly.
             pc[? "buffer_size"] = size;

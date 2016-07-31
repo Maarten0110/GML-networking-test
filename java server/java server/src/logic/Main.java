@@ -5,7 +5,8 @@ import utility.Print;
 
 public class Main {
 	
-	final static int PORT = 6510;
+	public final static int PORT = 6510;
+	public final static int MAGIC_NUMBER = 1313131313;
 
 	public static void main(String[] args) {
 

@@ -1,0 +1,102 @@
+PMPreferences: {
+  agentCopyEnvRunState: false,
+  agentsBrowseDir: 'C:\Program Files (x86)\Eclipse\eclipse/GOALagents',
+  defaultKRInterface: swiprolog,
+  middlewareLocal: false,
+  rememberLastUsedAgentDir: true,
+  removeKilledAgent: false,
+  sleepRepetetiveAgent: false,
+  threadPoolSize: 8,
+  useMASNameAsAgentPrefix: false
+}
+EnvironmentPreferences: {
+  printNewEntities: false,
+  registryhost: ''
+}
+RunPreferences: {
+  abortOnTestFailure: false,
+  breakOnGoalAchieved: true,
+  middleware: LOCAL
+}
+CorePreferences: {
+  learnedBehaviourFile: '',
+  learning: false
+}
+DebugPreferences: {
+  ACTIONCOMBO_END: HIDDEN,
+  ACTIONCOMBO_START: HIDDEN,
+  ACTION_END: HIDDEN,
+  ACTION_EXECUTED_BUILTIN: NONE,
+  ACTION_EXECUTED_USERSPEC: VIEW,
+  ACTION_POSTCOND_EVALUATION: PAUSE,
+  ACTION_PRECOND_EVALUATION: PAUSE,
+  ACTION_START: HIDDEN,
+  ADOPT_END: HIDDEN,
+  ADOPT_START: HIDDEN,
+  BB_UPDATES: VIEW,
+  BREAKPOINTS: HIDDENPAUSE,
+  CALL_ACTION_OR_MODULE: PAUSE,
+  CLEARSTATE: HIDDEN,
+  DB_QUERY_END: HIDDEN,
+  DB_QUERY_START: HIDDEN,
+  DELETE_END: HIDDEN,
+  DELETE_START: HIDDEN,
+  DROP_END: HIDDEN,
+  DROP_START: HIDDEN,
+  GB_CHANGES: HIDDEN,
+  GB_UPDATES: VIEW,
+  GOAL_ACHIEVED: VIEWPAUSE,
+  HIDDEN_RULE_CONDITION_EVALUATION: HIDDEN,
+  INSERT_END: HIDDEN,
+  INSERT_START: HIDDEN,
+  MAILS: NONE,
+  MAILS_CONDITIONAL_VIEW: CONDITIONALVIEW,
+  MIDDLEWARE_AGENT: HIDDEN,
+  MODULE_ENTRY: PAUSE,
+  MODULE_EXIT: NONE,
+  MSQUERY_END: HIDDEN,
+  MSQUERY_START: HIDDEN,
+  NONE: NONE,
+  PERCEPTS: NONE,
+  PERCEPTS_CONDITIONAL_VIEW: CONDITIONALVIEW,
+  REASONING_CYCLE_SEPARATOR: VIEW,
+  RULE_CONDITIONAL_VIEW: CONDITIONALVIEW,
+  RULE_CONDITION_EVALUATION: PAUSE,
+  RULE_EVAL_CONDITION_DONE: HIDDEN,
+  RULE_EXIT: HIDDEN,
+  RULE_START: HIDDEN,
+  RUNMODE: HIDDEN,
+  SLEEP: HIDDENVIEW,
+  TESTFAILURE: VIEWPAUSE
+}
+LoggingPreferences: {
+  eclipseActionHistory: true,
+  eclipseAgentConsoles: true,
+  eclipseDebug: false,
+  logconsoles: false,
+  logdirectory: 'C:\Users\Maarten/GOAL/logs',
+  logtofile: false,
+  overwritelogfiles: false,
+  showLogsInConsole: false,
+  showlogtime: false,
+  stackdump: false
+}
+DBExportPreferences: {
+  exportBrowseDir: 'C:\Program Files (x86)\Eclipse\eclipse',
+  exportbeliefs: true,
+  exportgoals: true,
+  exportmailbox: true,
+  exportpercepts: true,
+  openaftersave: false,
+  rememberLastUsedExportDir: true,
+  separatefiles: true
+}
+ProfilerPreferences: {
+  GLOBAL: true,
+  KR_CALL: true,
+  MODULE: true,
+  RULE: true,
+  RULE_ACTION: true,
+  RULE_CONDITION: true,
+  profiling: false
+}
