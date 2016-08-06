@@ -33,9 +33,18 @@ client = client_create(SERVER_IP, network_settings.PORT,
 var result = client_connect(client, 5);
 if (result) {
     show_message("connected!");
+    
+    // Send PUT_NAME request.
+    client_buffer_write(client, header.SIZE_INDICATOR_TYPE,
+                           header.REQUEST_SIZE + 8);
+    client_buffer_write(client, header.REQUEST_TYPE, requests.PUT_NAME);
+    client_buffer_write(client, buffer_string, "Maarten");
+    client_send(client);
+    
 } else {
     show_message("NOPE");
 }
+packet_collector = packet_collector_create();
 </string>
           </argument>
         </arguments>
@@ -83,7 +92,72 @@ client_send(client);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>/// Look for incoming packages
+switch (find("type")) {
+    case network_type_data:
+        var buffer = find("buffer");
+        packet_collector_add_packet(packet_collector, buffer, buffer_get_size(buffer));
+        packet_collector_find_message(packet_collector);
+    break;
+
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// handle received responses
+var buffer = packet_collector_get_message(packet_collector);
+while (buffer != -1) {
+    var r = buffer_read(buffer, header.REQUEST_TYPE);
+    client_handle_response(r, buffer);
+    buffer = packet_collector_get_message(packet_collector);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="32">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Send debug request.
+var str = get_string("What debug message to send tot the server?", "");
+client_prepare_request(client, string_length(str) + 1, requests.DEBUG);
+client_buffer_write(client, buffer_string, str);
+client_send(client);
+</string>
           </argument>
         </arguments>
       </action>

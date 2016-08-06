@@ -20,9 +20,9 @@ UT_test_output(
     pc[? "state"] == packet_collector_states.WAITING,
     name,
     "The state of the p.c. is still WAITING after the first part of the header"
-        + " is recieved.",
+        + " is received.",
     "The state of the p.c. is not WAITING after the first part of the header "
-        + "was recieved, but: " + string(pc[? "state"]) + "."
+        + "was received, but: " + string(pc[? "state"]) + "."
 );
 // Add packet with size indicator and part of the message body, state should
 // change to READING.
@@ -35,9 +35,9 @@ packet_collector_find_message(pc);
 UT_test_output(
     pc[? "state"] == packet_collector_states.READING,
     name,
-    "The state of the p.c. is READING after the complete header was recieved.",
+    "The state of the p.c. is READING after the complete header was received.",
     "The state of the p.c. is not READING after the complete header was "
-        + "recieved, but: " + string(pc[? "state"]) + "."
+        + "received, but: " + string(pc[? "state"]) + "."
 );
 UT_test_output(
     pc[? "target_size"] == 10,
@@ -58,9 +58,9 @@ buffer_write(buff, header.MAGIC_NUMBER_TYPE, header.MAGIC_NUMBER);
 packet_collector_add_packet(pc, buff, buffer_get_size(buff));
 buffer_delete(buff);
 packet_collector_find_message(pc);
-var list = pc[? "recieved_messages"];
+var list = pc[? "received_messages"];
 var read;
-// The message bodies should have been stored in recieved_message
+// The message bodies should have been stored in received_message
 UT_test_output(
     ds_list_size(list) == 2,
     name,

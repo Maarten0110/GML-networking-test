@@ -3,6 +3,7 @@ var ERROR = power(10, -2);
 var client = client_create("",0,0,0);
 var buffer = client[? "buffer"];
 var read;
+
 client_buffer_write(client, buffer_s8, 3);
 client_buffer_write(client, buffer_s16, -3412);
 client_buffer_write(client, buffer_s32, 540210493);
@@ -12,12 +13,22 @@ client_buffer_write(client, buffer_f64, 123.301293);
 buffer_seek(buffer, buffer_seek_start, 0);
 buffer_resize(buffer, client[? "buffer_size"]);
 
+
 UT_test_output(
-    client[? "buffer_size"] == 165,
+    client[? "buffer_size"] == 32 + header.MAGIC_NUMBER_SIZE,
     name,
     "The buffer_size of the client is correct.",
-    "The buffer_size of the client is incorrect. Expected 165 but was: "
+    "The buffer_size of the client is incorrect. Expected "
+        + string(32 + header.MAGIC_NUMBER_SIZE) + ", but was: "
         + string(client[? "buffer_size"]) + "."
+);
+read = buffer_read(buffer, header.MAGIC_NUMBER_TYPE);
+UT_test_output(
+    read == header.MAGIC_NUMBER, 
+    name,
+    "The buffer was prepared correctly",
+    "The buffer was prepared incorrectly. Expected "
+        + string(header.MAGIC_NUMBER) + ", but was " + string(read) + "."
 );
 read = buffer_read(buffer, buffer_s8);
 UT_test_output( 

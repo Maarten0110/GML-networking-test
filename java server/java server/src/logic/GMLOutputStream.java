@@ -54,9 +54,12 @@ public class GMLOutputStream {
 		}
 		byteWriter.writeByte((byte)0);
 	}
-
+	
+	public void flush() throws IOException {
+		((DataOutputStream)byteWriter).flush();
+	}
+	
 	public void setByteWriter(DataOutput byteWriter) {
 		this.byteWriter = byteWriter;
 	}
-	
 }

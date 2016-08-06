@@ -1,5 +1,5 @@
 /// packet_collector_find_message(packet_collector)
-// Checks if a complete message has been recieved yet. If so, fire the user
+// Checks if a complete message has been received yet. If so, fire the user
 // defined event number 0.
 var pc = argument0;
 
@@ -11,7 +11,7 @@ switch (pc[? "state"]) {
 
     case packet_collector_states.WAITING: {
         
-        // If the header has been completely recieved, then get the size of the
+        // If the header has been completely received, then get the size of the
         // message that is to come, and change the state to READING.
         if (buffer_size >= header_size) {
             
@@ -32,7 +32,7 @@ switch (pc[? "state"]) {
     
     case packet_collector_states.READING: {
         
-        // If the entire message has been recieved, then copy this message to
+        // If the entire message has been received, then copy this message to
         // a new buffer, and put the remaining bytes at the start of the buffer
         // and change the buffer_size accordingly.
         var target_size = pc[? "target_size"];
@@ -42,15 +42,18 @@ switch (pc[? "state"]) {
             // buffer{ MagicNumber|SizeIndicator|Messagebody|Nextmessage }
             var new_buffer = buffer_create(target_size, buffer_fixed, 1);
             buffer_copy(buffer, header_size, target_size, new_buffer, 0);
-            ds_list_add(pc[? "recieved_messages"], new_buffer);
+            ds_list_add(pc[? "received_messages"], new_buffer);
            
             // Put the Nextmessage part in front of the packet_collector
             // buffer.
             var size = buffer_size - target_size - header_size;
-            var temp_buffer = buffer_create(size, buffer_fixed, 1);
-            buffer_copy(buffer, header_size+target_size, size, temp_buffer, 0);
-            buffer_copy(temp_buffer, 0, size, buffer, 0);
-            buffer_delete(temp_buffer);
+            if (size != 0) {
+                var temp_buffer = buffer_create(size, buffer_fixed, 1);
+                buffer_copy(buffer, header_size + target_size, size,
+                               temp_buffer, 0);
+                buffer_copy(temp_buffer, 0, size, buffer, 0);
+                buffer_delete(temp_buffer);
+            }
             
             // Change the buffer size accordingly.
             pc[? "buffer_size"] = size;

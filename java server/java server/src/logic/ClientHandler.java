@@ -34,8 +34,8 @@ public class ClientHandler implements Runnable{
 				if (magicNumber != Main.MAGIC_NUMBER) {
 					throw new Exception("Message did not start with the magic number, but: " + magicNumber + ".");
 				}
-				short request = in.readS16();
-				RequestHandler.handleRequest(request, in, out);
+				short size = in.readS16();
+				RequestHandler.handleRequest(size, in, out);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				Print.withTime(e.getMessage());

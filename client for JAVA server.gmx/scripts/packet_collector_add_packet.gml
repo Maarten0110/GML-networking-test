@@ -1,5 +1,5 @@
 /// packet_collector_add_packet(packet_collector, buffer, size)
-// Adds a recieved packet to the internal buffer of the packet_collector.
+// Adds a received packet to the internal buffer of the packet_collector.
 var pc = argument0;
 var buffer = argument1;
 var size = argument2;

@@ -23,6 +23,11 @@
         <script>scripts\packet_collector_create.gml</script>
         <script>scripts\packet_collector_add_packet.gml</script>
         <script>scripts\packet_collector_find_message.gml</script>
+        <script>scripts\packet_collector_get_message.gml</script>
+      </scripts>
+      <scripts name="response handlers">
+        <script>scripts\client_handle_PUT_NAME.gml</script>
+        <script>scripts\client_handle_DEBUG.gml</script>
       </scripts>
       <script>scripts\find.gml</script>
       <script>scripts\network_settings_setup.gml</script>
@@ -30,6 +35,9 @@
       <script>scripts\client_connect.gml</script>
       <script>scripts\client_send.gml</script>
       <script>scripts\client_buffer_write.gml</script>
+      <script>scripts\client_buffer_prepare.gml</script>
+      <script>scripts\client_handle_response.gml</script>
+      <script>scripts\client_prepare_request.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">

@@ -11,9 +11,12 @@ enum header {
     MAGIC_NUMBER_SIZE = 4,
     SIZE_INDICATOR_TYPE = buffer_s16,
     SIZE_INDICATOR_SIZE = 2,
-    SIZE_INDICATOR_MAX_VALUE = 32767
+    SIZE_INDICATOR_MAX_VALUE = 32767,
+    REQUEST_TYPE = buffer_s16,
+    REQUEST_SIZE = 2
 };
 enum requests {
+    DEBUG,
     PUT_NAME
 };
 enum packet_collector_states {

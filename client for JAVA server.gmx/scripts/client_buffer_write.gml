@@ -7,11 +7,11 @@ var type = argument1;
 var value = argument2;
 
 switch (type) {
-    case buffer_s8:  client[? "buffer_size"] +=  8; break;
-    case buffer_s16: client[? "buffer_size"] += 16; break;
-    case buffer_s32: client[? "buffer_size"] += 32; break;
-    case buffer_f32: client[? "buffer_size"] += 32; break;
-    case buffer_f64: client[? "buffer_size"] += 64; break;
+    case buffer_s8:  client[? "buffer_size"] += 1; break;
+    case buffer_s16: client[? "buffer_size"] += 2; break;
+    case buffer_s32: client[? "buffer_size"] += 4; break;
+    case buffer_f32: client[? "buffer_size"] += 4; break;
+    case buffer_f64: client[? "buffer_size"] += 8; break;
     case buffer_string:
         client[? "buffer_size"] += string_length(value) + 1; break;
     default: {
