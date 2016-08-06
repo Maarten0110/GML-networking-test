@@ -26,13 +26,10 @@ public class RequestHandler {
 	
 	private static void handleDEBUG(GMLInputStream in, GMLOutputStream out) throws IOException {
 		String message = in.readString();
-		//int message = in.readS32();
 		Print.withTime("Recieved a DEBUG request. Message: \"" + message + "\".");
 		prepareResponse(out, (short)(20 + message.length()));
-		//prepareResponse(out, (short)6);
 		out.writeS16(DEBUG);
 		out.writeString("Server received: " + message);
-		//out.writeS32(message);
 	}
 	
 	private static void handlePUT_NAME(GMLInputStream in, GMLOutputStream out) throws IOException {
