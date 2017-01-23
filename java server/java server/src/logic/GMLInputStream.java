@@ -9,7 +9,7 @@ import java.io.DataInput;
 
 public class GMLInputStream {
 
-	private static ByteBuffer bb;
+	private ByteBuffer bb;
 	private DataInput byteReader;
 	
 	public GMLInputStream(InputStream in) {
