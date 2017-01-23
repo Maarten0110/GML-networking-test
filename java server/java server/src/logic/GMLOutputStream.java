@@ -9,7 +9,7 @@ import java.nio.ByteOrder;
 
 public class GMLOutputStream {
 
-	private static ByteBuffer bb;
+	private ByteBuffer bb;
 	private DataOutput byteWriter;
 	
 	public GMLOutputStream(OutputStream out) {
